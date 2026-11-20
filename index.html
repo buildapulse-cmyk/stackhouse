@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stackhaus | Websites &amp; Apps That Solve Problems</title>
+<meta name="description" content="Stackhaus builds websites and apps for businesses, schools and individuals in Ghana. See our work, choose a package and pay securely online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{
+  --navy:#0F172A; --navy-2:#1E293B; --red:#E11D48; --red-dark:#BE123C;
+  --paper:#FAFAF9; --line:#E7E5E4; --ink:#0F172A; --muted:#475569; --soft:#F1F5F9;
+  --radius:14px; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15;margin:0}
+a{color:var(--red-dark)}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red-dark);margin:0 0 10px}
+.section-head{max-width:640px;margin-bottom:44px}
+.section-head h2{font-size:clamp(30px,4vw,42px)}
+.section-head p{color:var(--muted);font-size:17px;margin:14px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:10px;font:600 15px Inter,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:#fff}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--navy-2)}
+.btn-outline{background:#fff;color:var(--navy);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--navy)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FB7185;outline-offset:2px}
+
+/* Nav */
+header{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.96);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:700 21px 'Space Grotesk',sans-serif}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:#CBD5E1;text-decoration:none;font-size:15px;font-weight:500;padding:10px 12px;border-radius:8px}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-links .btn{color:#fff;margin-left:8px;min-height:42px}
+.menu-btn{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer;border-radius:8px}
+
+/* Hero */
+.hero{background:var(--navy);color:#fff;padding:96px 0 104px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.02em}
+.hero h1 span{color:#FB7185}
+.hero p.lead{font-size:19px;color:#CBD5E1;max-width:540px;margin:22px 0 32px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-points{display:flex;flex-wrap:wrap;gap:22px;margin-top:36px;padding:0;list-style:none;color:#CBD5E1;font-size:15px}
+.hero-points li{display:flex;align-items:center;gap:8px}
+.hero-art{position:relative}
+.stack-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.stack-card + .stack-card{margin-top:-30px;margin-left:44px}
+.dots{display:flex;gap:6px;margin-bottom:14px}
+.dots i{width:10px;height:10px;border-radius:50%;background:#334155}
+.bar{height:10px;border-radius:5px;background:#334155;margin:8px 0}
+.bar.red{background:var(--red);width:40%}
+.bar.w70{width:70%}.bar.w50{width:50%}.bar.w85{width:85%}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.tiles div{height:54px;border-radius:8px;background:#334155}
+.tiles div:nth-child(2){background:#475569}
+
+/* Services */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.icon{width:48px;height:48px;border-radius:12px;background:#FFE4E6;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted)}
+
+/* Work */
+#work{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.work-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.shot{aspect-ratio:16/10;padding:16px;display:flex;flex-direction:column}
+.shot .window{flex:1;background:#fff;border-radius:10px;box-shadow:0 10px 24px rgba(15,23,42,.15);overflow:hidden;display:flex;flex-direction:column}
+.shot .top{height:22px;background:#F1F5F9;display:flex;align-items:center;gap:5px;padding:0 9px}
+.shot .top i{width:7px;height:7px;border-radius:50%;background:#CBD5E1}
+.shot .view{flex:1;padding:12px;display:flex;flex-direction:column;gap:7px}
+.work-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12px;font-weight:600;background:var(--soft);color:var(--navy-2);padding:4px 10px;border-radius:999px}
+.work-body h3{font-size:22px}
+.work-body p{margin:0;color:var(--muted)}
+.work-body .btn{margin-top:auto;align-self:flex-start}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.browser{display:block;margin:18px 18px 0;border-radius:10px 10px 0 0;overflow:hidden;box-shadow:0 12px 28px rgba(15,23,42,.14);border:1px solid var(--line);border-bottom:0;background:#fff;text-decoration:none;transition:transform .2s}
+.browser:hover{transform:translateY(-3px)}
+.browser-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#F1F5F9;border-bottom:1px solid var(--line)}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#CBD5E1}
+.browser-bar span{margin-left:10px;flex:1;min-width:0;font-size:12px;color:var(--muted);background:#fff;border-radius:6px;padding:3px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-img{width:100%;height:auto;display:block}
+.work-frame{background:linear-gradient(#E2E8F0,#F1F5F9)}
+.cta-strip{margin-top:28px;border:2px dashed #CBD5E1;border-radius:var(--radius);padding:28px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.cta-strip h3{font-size:22px}
+.cta-strip p{margin:6px 0 0;color:var(--muted)}
+.placeholder-shot{background:repeating-linear-gradient(45deg,#F1F5F9 0 12px,#F8FAFC 12px 24px);align-items:center;justify-content:center;color:var(--muted);font-weight:600;text-align:center}
+
+/* Pricing */
+.price-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column}
+.price-card.featured{border:2px solid var(--red);position:relative}
+.badge{position:absolute;top:-13px;left:28px;background:var(--red);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+.price-card h3{font-size:22px}
+.price{font:700 38px 'Space Grotesk',sans-serif;margin:14px 0 2px}
+.price small{font:500 15px Inter,sans-serif;color:var(--muted)}
+.price-card .sub{color:var(--muted);margin:0 0 18px;font-size:15px}
+.price-card ul{list-style:none;padding:0;margin:0 0 26px;display:flex;flex-direction:column;gap:10px}
+.price-card li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.price-card li svg{flex:none;margin-top:3px}
+.price-card .btn{margin-top:auto}
+.invoice{margin-top:28px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.invoice h3{font-size:22px}
+.invoice p{margin:6px 0 0;color:#CBD5E1}
+.secure{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-top:18px}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step}
+.step{padding-top:20px;border-top:3px solid var(--navy)}
+.step:first-child{border-color:var(--red)}
+.step b{font:700 15px 'Space Grotesk',sans-serif;color:var(--red-dark)}
+.step h3{font-size:19px;margin:6px 0}
+.step p{margin:0;color:var(--muted);font-size:15px}
+
+/* Support */
+#support{background:#fff;border-top:1px solid var(--line)}
+.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+details{border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-bottom:12px}
+summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:44px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--red-dark);line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin:0;padding:0 20px 18px;color:var(--muted)}
+.contact-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.contact-box h3{font-size:22px;margin-bottom:6px}
+.contact-lines{display:flex;flex-direction:column;gap:10px;margin:18px 0 24px}
+.contact-lines a,.contact-lines span{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:500}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{font:15px Inter,sans-serif;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;background:#fff;color:var(--ink);min-height:46px}
+.field textarea{min-height:110px;resize:vertical}
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{font-size:14px;color:var(--muted);margin:10px 0 0}
+.msg{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:#ECFDF5;color:#065F46;font-size:15px}
+.msg.show{display:block}
+.msg a{color:#065F46;font-weight:600}
+
+/* Footer */
+footer{background:var(--navy);color:#CBD5E1;padding:56px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{color:#fff;font:600 15px Inter,sans-serif;margin:0 0 12px}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+footer a{color:#CBD5E1;text-decoration:none}
+footer a:hover{color:#fff}
+.copy{border-top:1px solid #1E293B;margin-top:40px;padding-top:22px;font-size:14px;color:#94A3B8}
+
+/* Checkout modal */
+.overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:18px;width:100%;max-width:460px;max-height:92vh;overflow:auto;padding:28px;position:relative}
+.modal h3{font-size:24px}
+.modal .summary{background:var(--soft);border-radius:10px;padding:14px 16px;margin:16px 0 20px;display:flex;justify-content:space-between;gap:12px;font-weight:600}
+.close{position:absolute;top:14px;right:14px;width:44px;height:44px;border:0;background:none;cursor:pointer;border-radius:8px;color:var(--muted)}
+.close:hover{background:var(--soft)}
+.error{color:#B91C1C;font-size:14px;margin:4px 0 0;display:none}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;align-items:center;gap:10px;text-decoration:none}
+.wa-float .wa-icon{width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .15s}
+.wa-float .wa-label{background:#fff;color:#0F172A;font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.15);opacity:0;transform:translateX(8px);transition:opacity .15s,transform .15s;pointer-events:none;white-space:nowrap}
+.wa-float:hover .wa-icon,.wa-float:focus-visible .wa-icon{transform:scale(1.08)}
+.wa-float:hover .wa-label,.wa-float:focus-visible .wa-label{opacity:1;transform:none}
+.wa-float:focus-visible{outline:none}
+.wa-float:focus-visible .wa-icon{outline:3px solid #0F172A;outline-offset:3px}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid,.support-grid{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .work-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  section{padding:64px 0}
+  .menu-btn{display:flex;align-items:center;justify-content:center}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:12px 16px 20px;gap:2px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 12px}
+  .nav-links .btn{margin:8px 0 0}
+  .grid-3,.steps,.foot-grid,.row-2{grid-template-columns:1fr}
+  .invoice{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Stackhaus home">
+      <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 20 L82 36 L50 52 L18 36 Z" fill="#E11D48"/><path d="M18 50 L50 66 L82 50" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 64 L50 80 L82 64" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Stackhaus
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Our work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#support">Support</a>
+      <a class="btn btn-red" href="#pricing">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" style="color:#FB7185">Websites · Web apps · Mobile apps</p>
+      <h1>You bring the problem.<br>We build the <span>solution.</span></h1>
+      <p class="lead">Stackhaus designs and builds websites and apps for businesses, schools and individuals in Ghana and beyond, from the first sketch to the day it goes live, and after.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#pricing">See packages &amp; pay</a>
+        <a class="btn btn-ghost" href="#work">View our work</a>
+      </div>
+      <ul class="hero-points">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FB7185" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Mobile Money &amp; card payments</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FB7185" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Works on every phone</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FB7185" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Support after launch</li>
+      </ul>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="stack-card">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="bar red"></div><div class="bar w85"></div><div class="bar w70"></div>
+        <div class="tiles"><div></div><div></div><div></div></div>
+      </div>
+      <div class="stack-card">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="bar w50"></div><div class="bar w85"></div>
+        <div style="display:flex;gap:10px;margin-top:14px"><div style="flex:1;height:70px;border-radius:8px;background:#E11D48;opacity:.85"></div><div style="flex:2;height:70px;border-radius:8px;background:#334155"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we do</p>
+      <h2>Everything you need to get online and grow</h2>
+      <p>Tell us what's slowing you down. We'll build the tool that fixes it.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div>
+        <h3>Websites</h3>
+        <p>Fast, good-looking sites for your business, church, school or brand, so customers can find you and trust you.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></div>
+        <h3>Web apps &amp; systems</h3>
+        <p>Booking systems, portals, dashboards and admin panels that handle the work you now do by hand.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Mobile apps</h3>
+        <p>Apps your customers can carry in their pocket, built to work well even on slower networks.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+        <h3>Online payments</h3>
+        <p>Accept Mobile Money and cards on your site with Paystack, with money going straight to your account.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div>
+        <h3>Domains &amp; Google</h3>
+        <p>We set up your domain name and hosting, and get you showing up on Google and Google Maps.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
+        <h3>Care &amp; updates</h3>
+        <p>Monthly support so your site stays updated, secure and online. You call, we fix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Our work</p>
+      <h2>Projects we've built</h2>
+      <p>Real problems, real solutions. Click any project to see it live.</p>
+    </div>
+    <div class="work-grid" id="workGrid"></div>
+
+    <div class="cta-strip">
+      <div>
+        <h3>Your project could be next</h3>
+        <p>Have a problem a website or app could solve? The first consultation is free.</p>
+      </div>
+      <a class="btn btn-red" href="#support">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Pick a package. Pay securely online.</h2>
+      <p>Pay a deposit to book your project, and the balance when your site is ready. Mobile Money (MTN, Telecel, AirtelTigo) and cards accepted.</p>
+    </div>
+    <div class="grid-3" id="packages"></div>
+
+    <div class="invoice">
+      <div>
+        <h3>Already a client? Pay an invoice</h3>
+        <p>Enter the amount on your invoice and your invoice number.</p>
+      </div>
+      <button class="btn btn-red" type="button" data-pay="invoice">Pay an invoice</button>
+    </div>
+    <p class="secure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Payments are processed securely by Paystack. We never see or store your card or MoMo PIN.</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>From idea to launch in four steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Talk</h3><p>A free chat about your problem, your customers and your budget.</p></div>
+      <div class="step"><b>02</b><h3>Plan &amp; design</h3><p>We sketch the pages and show you a design before writing any code.</p></div>
+      <div class="step"><b>03</b><h3>Build</h3><p>We build it, you test it, and we adjust until it's right.</p></div>
+      <div class="step"><b>04</b><h3>Launch &amp; support</h3><p>Your site goes live on your domain, and we stay on call to help.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+  <div class="wrap support-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:28px">
+        <p class="eyebrow">Customer support</p>
+        <h2>Questions? We're here to help.</h2>
+      </div>
+      <details>
+        <summary>How long does a website take?</summary>
+        <p>A starter website usually takes 1–2 weeks. Bigger sites and apps take longer, and we'll give you a clear timeline before we start.</p>
+      </details>
+      <details>
+        <summary>How do I pay?</summary>
+        <p>Choose a package above and click "Pay". You can pay with Mobile Money or a bank card through Paystack. You'll get a receipt by email.</p>
+      </details>
+      <details>
+        <summary>Do I need to pay everything at once?</summary>
+        <p>No. You pay just a 10% deposit to start, and the rest when your project is ready to go live.</p>
+      </details>
+      <details>
+        <summary>What if something breaks after launch?</summary>
+        <p>Every package comes with free support after launch. After that, our monthly Care plan keeps your site updated and fixed.</p>
+      </details>
+      <details>
+        <summary>Can I update the website myself?</summary>
+        <p>Yes. If you want to edit your own content, we can build that in and show you how to use it.</p>
+      </details>
+    </div>
+
+    <div class="contact-box">
+      <h3>Send us a message</h3>
+      <p class="note" style="margin:0">We usually reply within a few hours.</p>
+      <div class="contact-lines">
+        <a href="https://wa.me/233209952614" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>
+          WhatsApp: 020 995 2614
+        </a>
+        <a href="mailto:buildapulse@gmail.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          buildapulse@gmail.com
+        </a>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="row-2">
+          <div class="field"><label for="cName">Your name</label><input id="cName" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="cPhone">Phone / WhatsApp</label><input id="cPhone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field">
+          <label for="cTopic">What do you need help with?</label>
+          <select id="cTopic" name="topic">
+            <option>A new website</option>
+            <option>A web or mobile app</option>
+            <option>A problem with my payment</option>
+            <option>Help with my existing site</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" required></textarea></div>
+        <button class="btn btn-red" type="submit" style="width:100%">Send on WhatsApp</button>
+        <p class="error" id="cErr">Please add your name and a message.</p>
+        <div class="msg" id="cDone" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:12px">
+          <svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 20 L82 36 L50 52 L18 36 Z" fill="#E11D48"/><path d="M18 50 L50 66 L82 50" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 64 L50 80 L82 64" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          Stackhaus
+        </a>
+        <p style="margin:0;max-width:320px">The full stack, front to back, built under one roof. Websites and apps that solve real problems.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#services">Services</a></li><li><a href="#work">Our work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#support">Support</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="https://wa.me/233209952614" target="_blank" rel="noopener">WhatsApp: 020 995 2614</a></li><li><a href="mailto:buildapulse@gmail.com">buildapulse@gmail.com</a></li><li>Winneba, Ghana</li></ul>
+      </div>
+    </div>
+    <p class="copy">© <span id="year"></span> Stackhaus. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="wa-float" href="https://wa.me/233209952614?text=Hi%20Stackhaus%2C%20I%27d%20like%20to%20ask%20about%20a%20website%20or%20app." target="_blank" rel="noopener" aria-label="Chat with Stackhaus on WhatsApp">
+  <span class="wa-label">Chat with us on WhatsApp</span>
+  <span class="wa-icon"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.5-.7-2.2-1.4-.6-.5-1.1-1.2-1.4-1.8-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></span>
+</a>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <button class="close" type="button" id="closePay" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h3 id="payTitle">Checkout</h3>
+    <div class="summary"><span id="paItem">Package</span><span id="payAmt">GHS 0</span></div>
+    <form id="payForm" novalidate>
+      <div class="field"><label for="pName">Full name</label><input id="pName" required autocomplete="name"></div>
+      <div class="field"><label for="pEmail">Email (for your receipt)</label><input id="pEmail" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="pPhone">Phone number</label><input id="pPhone" type="tel" autocomplete="tel"></div>
+      <div id="invoiceFields" style="display:none">
+        <div class="row-2">
+          <div class="field"><label for="pInv">Invoice number</label><input id="pInv"></div>
+          <div class="field"><label for="pAmount">Amount (GHS)</label><input id="pAmount" type="number" min="1" step="0.01" inputmode="decimal"></div>
+        </div>
+      </div>
+      <p class="error" id="pErr"></p>
+      <button class="btn btn-red" type="submit" style="width:100%;margin-top:6px" id="payBtn">Pay now</button>
+      <p class="note" style="text-align:center">Secured by Paystack · MoMo &amp; cards</p>
+      <div class="msg" id="pDone" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<script src="projects.js"></script>
+<script>
+/* ============ SETTINGS: change these ============ */
+var CONFIG = {
+  // Your Paystack PUBLIC key (starts with pk_test_ or pk_live_). Never put the secret key here.
+  paystackPublicKey: "",
+  whatsapp: "233209952614",
+  currency: "GHS",
+  depositPercent: 10, // % paid upfront to start a project
+  packages: [
+    {
+      id: "starter", name: "Starter Website", price: 1500, note: "Deposit: 10% to start",
+      sub: "For small businesses and personal brands.",
+      features: ["Up to 5 pages", "Works on phones & computers", "WhatsApp chat button", "Contact form", "2 weeks free support"]
+    },
+    {
+      id: "business", name: "Business Website", price: 3500, featured: true, note: "Deposit: 10% to start",
+      sub: "For businesses that want to sell or take bookings.",
+      features: ["Up to 10 pages", "Online payments (MoMo & card)", "Domain & hosting setup", "Google Business setup", "1 month free support"]
+    },
+    {
+      id: "app", name: "Custom Web / Mobile App", price: 0, note: "Price after a free consultation",
+      sub: "Booking systems, portals, dashboards and apps.",
+      features: ["Built around your problem", "User accounts & admin panel", "Payments & reports", "Android / web", "3 months free support"]
+    }
+  ]
+};
+/* ================================================ */
+
+var money = function(n){ return CONFIG.currency + " " + Number(n).toLocaleString("en-GH",{minimumFractionDigits:0,maximumFractionDigits:2}); };
+var check = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>';
+
+// Build pricing cards
+var pk = document.getElementById("packages");
+CONFIG.packages.forEach(function(p){
+  var el = document.createElement("div");
+  el.className = "price-card" + (p.featured ? " featured" : "");
+  el.innerHTML =
+    (p.featured ? '<span class="badge">Most popular</span>' : '') +
+    '<h3>' + p.name + '</h3>' +
+    '<div class="price">' + (p.price ? money(p.price) : 'Custom') + (p.price ? ' <small>from</small>' : '') + '</div>' +
+    '<p class="sub">' + p.sub + '<br><strong>' + p.note + '</strong></p>' +
+    '<ul>' + p.features.map(function(f){ return '<li>' + check + '<span>' + f + '</span></li>'; }).join("") + '</ul>' +
+    (p.price
+      ? '<button class="btn ' + (p.featured ? 'btn-red' : 'btn-dark') + '" type="button" data-pay="' + p.id + '">Pay deposit · ' + money(p.price * CONFIG.depositPercent / 100) + '</button>'
+      : '<a class="btn btn-outline" href="#support">Get a free quote</a>');
+  pk.appendChild(el);
+});
+
+// Build "Our work" from projects.js
+(function(){
+  var grid = document.getElementById("workGrid");
+  var list = (typeof PROJECTS !== "undefined") ? PROJECTS : [];
+  function esc(t){ return String(t == null ? "" : t).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  list.forEach(function(p){
+    var shortUrl = String(p.link || "").replace(/^https?:\/\//, "").replace(/\/(index\.html)?$/, "");
+    var art = document.createElement("article");
+    art.className = "work-card";
+    art.innerHTML =
+      '<div class="work-frame"><a class="browser" href="' + esc(p.link) + '" target="_blank" rel="noopener" aria-label="Open the ' + esc(p.title) + ' website">' +
+        '<div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>' + esc(shortUrl) + '</span></div>' +
+        '<img class="shot-img" src="' + esc(p.image) + '" alt="Home page of the ' + esc(p.title) + ' website" loading="lazy">' +
+      '</a></div>' +
+      '<div class="work-body">' +
+        '<div class="tags">' + (p.tags || []).map(function(t){ return '<span>' + esc(t) + '</span>'; }).join("") + '</div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        '<p>' + esc(p.description) + '</p>' +
+        '<a class="btn btn-dark" href="' + esc(p.link) + '" target="_blank" rel="noopener">Visit site</a>' +
+      '</div>';
+    grid.appendChild(art);
+  });
+})();
+
+// Mobile menu
+var menuBtn = document.getElementById("menuBtn"), navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", function(){
+  var open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open);
+});
+navLinks.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); }); });
+
+// Checkout
+var overlay = document.getElementById("overlay"), current = null;
+function openPay(id){
+  current = id;
+  var isInv = id === "invoice";
+  var p = CONFIG.packages.find(function(x){ return x.id === id; });
+  document.getElementById("paItem").textContent = isInv ? "Invoice payment" : p.name + " (" + CONFIG.depositPercent + "% deposit)";
+  document.getElementById("payAmt").textContent = isInv ? "Enter amount" : money(p.price * CONFIG.depositPercent / 100);
+  document.getElementById("invoiceFields").style.display = isInv ? "block" : "none";
+  document.getElementById("pErr").style.display = "none";
+  document.getElementById("pDone").classList.remove("show");
+  overlay.classList.add("open"); overlay.setAttribute("aria-hidden","false");
+  document.getElementById("pName").focus();
+}
+function closePay(){ overlay.classList.remove("open"); overlay.setAttribute("aria-hidden","true"); }
+document.addEventListener("click", function(e){
+  var b = e.target.closest("[data-pay]");
+  if (b) openPay(b.getAttribute("data-pay"));
+});
+document.getElementById("closePay").addEventListener("click", closePay);
+overlay.addEventListener("click", function(e){ if (e.target === overlay) closePay(); });
+overlay.addEventListener("keydown", function(e){ if (e.key === "Escape") closePay(); });
+
+function loadPaystack(cb){
+  if (window.PaystackPop) return cb(true);
+  var s = document.createElement("script");
+  s.src = "https://js.paystack.co/v1/inline.js";
+  s.onload = function(){ cb(true); };
+  s.onerror = function(){ cb(false); };
+  document.head.appendChild(s);
+}
+
+document.getElementById("payForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var err = document.getElementById("pErr"), done = document.getElementById("pDone");
+  var name = document.getElementById("pName").value.trim();
+  var email = document.getElementById("pEmail").value.trim();
+  var phone = document.getElementById("pPhone").value.trim();
+  var amount, label;
+  if (current === "invoice") {
+    amount = parseFloat(document.getElementById("pAmount").value);
+    label = "Invoice " + (document.getElementById("pInv").value.trim() || "(no number)");
+  } else {
+    var p = CONFIG.packages.find(function(x){ return x.id === current; });
+    amount = p.price * CONFIG.depositPercent / 100; label = p.name + " deposit";
+  }
+  var problems = [];
+  if (!name) problems.push("your name");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) problems.push("a valid email");
+  if (!(amount > 0)) problems.push("the amount");
+  if (problems.length) { err.textContent = "Please add " + problems.join(", ") + "."; err.style.display = "block"; return; }
+  err.style.display = "none";
+
+  if (!CONFIG.paystackPublicKey) {
+    done.innerHTML = "<strong>Preview mode.</strong> Payments switch on once the Paystack public key is added to this site. You would now pay " + money(amount) + " for: " + label + ".";
+    done.classList.add("show"); return;
+  }
+  loadPaystack(function(ok){
+    if (!ok) { err.textContent = "Couldn't reach the payment service. Check your connection and try again."; err.style.display = "block"; return; }
+    var handler = PaystackPop.setup({
+      key: CONFIG.paystackPublicKey,
+      email: email,
+      amount: Math.round(amount * 100), // pesewas
+      currency: CONFIG.currency,
+      ref: "SH-" + Date.now(),
+      metadata: { custom_fields: [
+        { display_name: "Name", variable_name: "name", value: name },
+        { display_name: "Phone", variable_name: "phone", value: phone },
+        { display_name: "For", variable_name: "for", value: label }
+      ]},
+      callback: function(res){
+        done.innerHTML = "<strong>Payment received. Thank you, " + name.split(" ")[0] + "!</strong> Your reference is " + res.reference + ". A receipt is on its way to " + email + ", and we'll contact you shortly.";
+        done.classList.add("show");
+      },
+      onClose: function(){}
+    });
+    handler.openIframe();
+  });
+});
+
+// Contact form -> WhatsApp
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var name = document.getElementById("cName").value.trim();
+  var msg = document.getElementById("cMsg").value.trim();
+  var err = document.getElementById("cErr"), done = document.getElementById("cDone");
+  if (!name || !msg) { err.style.display = "block"; return; }
+  err.style.display = "none";
+  var text = "Hi Stackhaus, I'm " + name +
+    (document.getElementById("cPhone").value.trim() ? " (" + document.getElementById("cPhone").value.trim() + ")" : "") +
+    ".\nTopic: " + document.getElementById("cTopic").value + "\n\n" + msg;
+  var url = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
+  done.innerHTML = 'Your message is ready. <a href="' + url + '" target="_blank" rel="noopener">Open WhatsApp to send it</a>, or message us on 020 995 2614.';
+  done.classList.add("show");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

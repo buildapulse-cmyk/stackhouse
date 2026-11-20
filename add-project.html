@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Add a project | Stackhaus</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#FAFAF9;color:#0F172A;line-height:1.55}
+header{background:#0F172A;color:#fff;padding:18px 24px;font:700 20px 'Space Grotesk',sans-serif}
+main{max-width:1100px;margin:0 auto;padding:32px 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+h1,h2{font-family:'Space Grotesk',sans-serif;margin:0 0 6px}
+h1{font-size:28px}h2{font-size:20px}
+.intro{grid-column:1/-1;color:#475569;margin:0}
+.panel{background:#fff;border:1px solid #E7E5E4;border-radius:14px;padding:24px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+label{font-weight:600;font-size:14px}
+.hint{font-size:13px;color:#475569}
+input,textarea{font:15px Inter,sans-serif;padding:11px 13px;border:1px solid #CBD5E1;border-radius:10px;min-height:44px}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid #FB7185;outline-offset:2px}
+.btn{min-height:46px;padding:0 20px;border-radius:10px;border:0;font:600 15px Inter,sans-serif;cursor:pointer;background:#E11D48;color:#fff}
+.btn:hover{background:#BE123C}
+.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+code{background:#F1F5F9;padding:2px 6px;border-radius:5px;font-size:14px}
+pre{background:#0F172A;color:#E2E8F0;padding:16px;border-radius:10px;overflow:auto;font-size:13px;white-space:pre-wrap;word-break:break-word;margin:10px 0}
+.card{border:1px solid #E7E5E4;border-radius:14px;overflow:hidden;background:#FAFAF9;margin-top:10px}
+.bar{display:flex;gap:6px;align-items:center;height:28px;padding:0 12px;background:#F1F5F9;border-bottom:1px solid #E7E5E4}
+.bar i{width:9px;height:9px;border-radius:50%;background:#CBD5E1}
+.bar span{margin-left:8px;font-size:12px;color:#475569;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.card img{width:100%;display:block}
+.noimg{aspect-ratio:2/1;display:flex;align-items:center;justify-content:center;color:#475569;background:#F1F5F9}
+.card .b{padding:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.tags span{font-size:12px;font-weight:600;background:#F1F5F9;padding:3px 9px;border-radius:99px}
+.ok{color:#065F46;font-weight:600;font-size:14px;min-height:20px}
+@media(max-width:820px){main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>Stackhaus · Add a project</header>
+<main>
+  <div class="intro">
+    <h1>Add a new project to "Our work"</h1>
+    <p>Fill this in, and this page writes the code for you. Then follow the 4 steps on the right. Nothing is uploaded from here.</p>
+  </div>
+
+  <form class="panel" id="f" novalidate>
+    <div class="field">
+      <label for="title">Project name</label>
+      <input id="title" placeholder="e.g. Grace Bakery Website">
+    </div>
+    <div class="field">
+      <label for="link">Website link</label>
+      <input id="link" type="url" placeholder="https://...">
+    </div>
+    <div class="field">
+      <label for="img">Screenshot</label>
+      <input id="img" type="file" accept="image/png,image/jpeg,image/webp">
+      <span class="hint">Pick the screenshot from your images folder. Tip: use simple names with no spaces, like <code>bakery.png</code>.</span>
+    </div>
+    <div class="field">
+      <label for="tags">Tags (separate with commas)</label>
+      <input id="tags" placeholder="Website, Online orders, Payments">
+    </div>
+    <div class="field">
+      <label for="desc">Short description</label>
+      <textarea id="desc" placeholder="What problem did it solve, and what can people do on it?"></textarea>
+    </div>
+  </form>
+
+  <div>
+    <div class="panel">
+      <h2>Preview</h2>
+      <div class="card">
+        <div class="bar"><i></i><i></i><i></i><span id="pvUrl">your-site.com</span></div>
+        <div id="pvImg"><div class="noimg">Screenshot shows here</div></div>
+        <div class="b"><div class="tags" id="pvTags"></div><h2 id="pvTitle">Project name</h2><p id="pvDesc" style="margin:0;color:#475569">Description</p></div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:20px">
+      <h2>Then do these 4 steps</h2>
+      <ol class="steps">
+        <li>Make sure the screenshot is in the <code>images</code> folder, named <code id="fname">yourfile.png</code>.</li>
+        <li>Click <strong>Copy code</strong>:
+          <pre id="out">// fill in the form first</pre>
+          <button class="btn" type="button" id="copy">Copy code</button>
+          <div class="ok" id="ok" role="status"></div>
+        </li>
+        <li>Open <code>projects.js</code> in VS Code and paste it on the line right after <code>var PROJECTS = [</code>. Save.</li>
+        <li>In the terminal: <code>git add .</code> then <code>git commit -m "Add project"</code> then <code>git push</code></li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<script>
+var $ = function(id){ return document.getElementById(id); };
+var fileName = "";
+function q(s){ return JSON.stringify(String(s || "")); }
+function update(){
+  var title = $("title").value.trim(), link = $("link").value.trim(), desc = $("desc").value.trim();
+  var tags = $("tags").value.split(",").map(function(t){ return t.trim(); }).filter(Boolean);
+  $("pvTitle").textContent = title || "Project name";
+  $("pvDesc").textContent = desc || "Description";
+  $("pvUrl").textContent = link.replace(/^https?:\/\//, "") || "your-site.com";
+  $("pvTags").innerHTML = "";
+  tags.forEach(function(t){ var s = document.createElement("span"); s.textContent = t; $("pvTags").appendChild(s); });
+  $("fname").textContent = fileName || "yourfile.png";
+  $("out").textContent =
+    "  {\n" +
+    "    title: " + q(title) + ",\n" +
+    "    link: " + q(link) + ",\n" +
+    "    image: " + q("images/" + (fileName || "yourfile.png")) + ",\n" +
+    "    tags: [" + tags.map(q).join(", ") + "],\n" +
+    "    description: " + q(desc) + "\n" +
+    "  },\n";
+}
+["title","link","tags","desc"].forEach(function(id){ $(id).addEventListener("input", update); });
+$("img").addEventListener("change", function(){
+  var f = this.files && this.files[0];
+  if (!f) return;
+  fileName = f.name;
+  var r = new FileReader();
+  r.onload = function(){ $("pvImg").innerHTML = ""; var i = new Image(); i.src = r.result; i.alt = "Screenshot preview"; $("pvImg").appendChild(i); };
+  r.readAsDataURL(f);
+  update();
+});
+$("copy").addEventListener("click", function(){
+  var text = $("out").textContent;
+  try {
+    navigator.clipboard.writeText(text).then(function(){ $("ok").textContent = "Copied! Now paste it into projects.js."; },
+      function(){ $("ok").textContent = "Couldn't copy automatically: select the code above and press Ctrl + C."; });
+  } catch(e){ $("ok").textContent = "Couldn't copy automatically: select the code above and press Ctrl + C."; }
+});
+update();
+</script>
+</body>
+</html>
